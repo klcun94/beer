@@ -1,29 +1,34 @@
 <h1 align="center">Beer List from Punk API</h1>
-<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" width="100%">
-    <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-    </ng-container>
-    <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-    </ng-container>
-    <ng-container matColumnDef="image_url">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Image </th>
-            <td mat-cell *matCellDef="let element"> <img [src]="element.image_url"/></td>
-    </ng-container>
-    <ng-container matColumnDef="tagline">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Tagline </th>
-        <td mat-cell *matCellDef="let element"> {{element.tagline}} </td>
-    </ng-container>
-    <ng-container matColumnDef="description">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
-        <td mat-cell *matCellDef="let element"> {{element.description}} </td>
-    </ng-container>
-    <ng-container matColumnDef="abv">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> ABV </th>
-        <td mat-cell *matCellDef="let element"> {{element.abv}} </td>
-    </ng-container>
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+<div>
+    <button (click)="addBeer()" class="addBeerButton">Add Another Beer</button>
+</div>
+<div>
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
+        <ng-container matColumnDef="image_url">
+            <th mat-header-cell *matHeaderCellDef> Image </th>
+                <td mat-cell *matCellDef="let element"> <img height="10%" [src]="element.image_url"/></td>
+        </ng-container>
+        <ng-container matColumnDef="tagline">
+            <th mat-header-cell *matHeaderCellDef> Tagline </th>
+            <td mat-cell *matCellDef="let element"> {{element.tagline}} </td>
+        </ng-container>
+        <ng-container matColumnDef="description">
+            <th mat-header-cell *matHeaderCellDef> Description </th>
+            <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+        </ng-container>
+        <ng-container matColumnDef="abv">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ABV </th>
+            <td mat-cell *matCellDef="let element"> {{element.abv}} </td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

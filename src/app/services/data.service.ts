@@ -10,4 +10,8 @@ export class DataService {
   async getBeers(): Promise<Ibeer[]> {
     return await this.apiService.get();
   }
+  async update(count: number) {
+    const data = await this.apiService.getCount('?per_page=' + count);
+    return data;
+  }
 }
