@@ -1,6 +1,8 @@
 export interface Ibeer {
     id: number;
     name: string;
+    image_url: string;
     tagline: string;
-    // can add more descriptors
+    description: string;
+    abv: number;
 }
